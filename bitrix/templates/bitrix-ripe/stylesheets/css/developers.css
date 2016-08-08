@@ -1,0 +1,8 @@
+/*Шильдик акции в списке товара*/
+.sale-label {color: #fff;font-family: Tahoma, Arial, sans-serif; font-size: 10px;text-transform:uppercase;font-weight: 700; line-height: 20px;padding: 0 8px 0 12px; border-top-right-radius: 10px; right: -5px; top:-1px;height: 20px;position: absolute;}
+.sale-label:before{content: '';position: absolute;left:0;height: 0;width: 0;border-left:3px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.sale-label:after{content: '';position: absolute;right:0;bottom:-6px;height: 0;width: 0; border-right:6px solid transparent}
+.sale-label-new{background: -webkit-linear-gradient(bottom, #ee033a 0%, #fb768a 100%);background: linear-gradient(to top, #ee033a 0%, #fb768a 100%)}
+.sale-label-new:after{border-top:6px solid #b5002b}
+.sale-label-soon{background: -webkit-linear-gradient(bottom, #2c98ff 0%, #61cbff 100%);background: linear-gradient(to top, #2c98ff 0%, #61cbff 100%)}
+.sale-label-soon:after{border-top:6px solid #30659b}

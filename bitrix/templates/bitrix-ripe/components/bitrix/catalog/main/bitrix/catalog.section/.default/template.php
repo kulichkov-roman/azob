@@ -1,10 +1,8 @@
 <?php
-
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
-if (!empty($arResult['ITEMS'])) {
-	?>
+if (!empty($arResult['ITEMS'])) {?>
 	<div id="section-product" class="row">
 		<? foreach ($arResult['ITEMS'] as $arItem) {
 			if (is_array($arItem)) {
@@ -12,6 +10,12 @@ if (!empty($arResult['ITEMS'])) {
 				?>
 				<a class="product-preview col-lg-2" itemscope itemtype="http://schema.org/Product" href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
 					<div class="image">
+						<?
+						if($USER->isAdmin()) {
+							if($arItem['PROPERTIES']['ATTR_STOCK']['VALUE'] == 'да') {?>
+								<div class="sale-label sale-label-new">акция</div>
+							<?}?>
+						<?}?>
 						<div class="fixer">
 							<? if ($bPicture): ?>
 								<img itemprop="image" src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" width="<?= $arItem["PREVIEW_PICTURE"]["WIDTH"] ?>" height="<?= $arElement["PREVIEW_PICTURE"]["HEIGHT"] ?>" alt="<?= $arElement["NAME"] ?>">
@@ -31,8 +35,8 @@ if (!empty($arResult['ITEMS'])) {
 						</div>
 					</div>
 				</a>
-			<? } ?>
-		<? } ?>
+			<?}?>
+		<?}?>
 	</div>
 <?
 }

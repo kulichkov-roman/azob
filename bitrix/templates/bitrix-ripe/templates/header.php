@@ -25,6 +25,7 @@
 	}
 	?>
 	<script src="<?=SITE_TEMPLATE_PATH?>/javascripts/main.js"></script>
+	<?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/stylesheets/css/developers.css');?>
 </head>
 <body>
 <!--[if lt IE 9]>
