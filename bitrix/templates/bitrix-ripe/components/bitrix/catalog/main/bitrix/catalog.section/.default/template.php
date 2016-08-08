@@ -1,7 +1,7 @@
 <?php
+
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
-
 if (!empty($arResult['ITEMS'])) {?>
 	<div id="section-product" class="row">
 		<? foreach ($arResult['ITEMS'] as $arItem) {
@@ -10,11 +10,8 @@ if (!empty($arResult['ITEMS'])) {?>
 				?>
 				<a class="product-preview col-lg-2" itemscope itemtype="http://schema.org/Product" href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
 					<div class="image">
-						<?
-						if($USER->isAdmin()) {
-							if($arItem['PROPERTIES']['ATTR_STOCK']['VALUE'] == 'да') {?>
-								<div class="sale-label sale-label-new">акция</div>
-							<?}?>
+						<?if($arItem['PROPERTIES']['ATTR_STOCK']['VALUE'] == 'да') {?>
+							<div class="sale-label sale-label-new">акция</div>
 						<?}?>
 						<div class="fixer">
 							<? if ($bPicture): ?>
@@ -38,8 +35,7 @@ if (!empty($arResult['ITEMS'])) {?>
 			<?}?>
 		<?}?>
 	</div>
-<?
-}
+<?}
 
 if ($arParams["DISPLAY_BOTTOM_PAGER"]) {
 	echo $arResult["NAV_STRING"]; echo $arResult["DESCRIPTION"];
