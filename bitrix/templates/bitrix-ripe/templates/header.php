@@ -5,6 +5,7 @@
 	<meta charset="<?= LANG_CHARSET ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=1002">
+	<meta name="cmsmagazine" content="f3a6695dfcc9f3ed1b584c8b48702bc0" />
 	<? if (ENVIRONMENT === 'production') { ?>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/<?= JQVERSION ?>/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="<?= SITE_TEMPLATE_PATH ?>/javascripts/vendor/jquery-<?= JQVERSION ?>.min.js"><\/script>')</script>
@@ -91,34 +92,37 @@
 				</div>
 
 				<div id="search">
-					<?$APPLICATION->IncludeComponent("bitrix:search.title", "",
-						array(
-							"NUM_CATEGORIES" => "1",
-							"TOP_COUNT" => "5",
-							"CHECK_DATES" => "N",
-							"SHOW_OTHERS" => "N",
-							"PAGE" => SITE_DIR . "catalog/",
-							"CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS"),
-							"CATEGORY_0" => array(
-								0 => "iblock_catalog",
-							),
-							"CATEGORY_0_iblock_catalog" => array(
-								0 => "all",
-							),
-							"CATEGORY_OTHERS_TITLE" => GetMessage("SEARCH_OTHER"),
-							"SHOW_INPUT" => "Y",
-							"INPUT_ID" => "title-search-input",
-							"CONTAINER_ID" => "search",
-							"PRICE_CODE" => array(
-								0 => "BASE",
-							),
-							"SHOW_PREVIEW" => "Y",
-							"PREVIEW_WIDTH" => "75",
-							"PREVIEW_HEIGHT" => "75",
-							"CONVERT_CURRENCY" => "Y"
-						),
-						false
-					);?>
+					<?$APPLICATION->IncludeComponent("bitrix:search.title", ".default", array(
+	"NUM_CATEGORIES" => "1",
+	"TOP_COUNT" => "5",
+	"ORDER" => "date",
+	"USE_LANGUAGE_GUESS" => "Y",
+	"CHECK_DATES" => "N",
+	"SHOW_OTHERS" => "N",
+	"PAGE" => SITE_DIR."catalog/",
+	"CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS"),
+	"CATEGORY_0" => array(
+		0 => "iblock_catalog",
+	),
+	"CATEGORY_0_iblock_catalog" => array(
+		0 => "all",
+	),
+	"SHOW_INPUT" => "Y",
+	"INPUT_ID" => "title-search-input",
+	"CONTAINER_ID" => "search",
+	"PRICE_CODE" => array(
+		0 => "BASE",
+	),
+	"PRICE_VAT_INCLUDE" => "Y",
+	"PREVIEW_TRUNCATE_LEN" => "",
+	"SHOW_PREVIEW" => "Y",
+	"PREVIEW_WIDTH" => "75",
+	"PREVIEW_HEIGHT" => "75",
+	"CONVERT_CURRENCY" => "Y",
+	"CURRENCY_ID" => "RUB"
+	),
+	false
+);?>
 				</div>
 
 				<div id="basket">
